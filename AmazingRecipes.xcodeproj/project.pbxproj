@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		232EEAA12A24497B004B0636 /* AmazingRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232EEAA02A24497B004B0636 /* AmazingRecipesApp.swift */; };
-		232EEAA32A24497B004B0636 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232EEAA22A24497B004B0636 /* ContentView.swift */; };
+		232EEAA32A24497B004B0636 /* RecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232EEAA22A24497B004B0636 /* RecipesListView.swift */; };
 		232EEAA52A24497F004B0636 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232EEAA42A24497F004B0636 /* Assets.xcassets */; };
 		232EEAA82A24497F004B0636 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232EEAA72A24497F004B0636 /* Preview Assets.xcassets */; };
 		232EEAAA2A24497F004B0636 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232EEAA92A24497F004B0636 /* Persistence.swift */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		232EEA9D2A24497B004B0636 /* AmazingRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		232EEAA02A24497B004B0636 /* AmazingRecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingRecipesApp.swift; sourceTree = "<group>"; };
-		232EEAA22A24497B004B0636 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		232EEAA22A24497B004B0636 /* RecipesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListView.swift; sourceTree = "<group>"; };
 		232EEAA42A24497F004B0636 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		232EEAA72A24497F004B0636 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		232EEAA92A24497F004B0636 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				232EEAA02A24497B004B0636 /* AmazingRecipesApp.swift */,
-				232EEAA22A24497B004B0636 /* ContentView.swift */,
+				232EEAA22A24497B004B0636 /* RecipesListView.swift */,
 				232EEAA42A24497F004B0636 /* Assets.xcassets */,
 				232EEAA92A24497F004B0636 /* Persistence.swift */,
 				232EEAAB2A24497F004B0636 /* AmazingRecipes.xcdatamodeld */,
@@ -145,7 +145,7 @@
 			files = (
 				232EEAAA2A24497F004B0636 /* Persistence.swift in Sources */,
 				232EEAAD2A24497F004B0636 /* AmazingRecipes.xcdatamodeld in Sources */,
-				232EEAA32A24497B004B0636 /* ContentView.swift in Sources */,
+				232EEAA32A24497B004B0636 /* RecipesListView.swift in Sources */,
 				232EEAA12A24497B004B0636 /* AmazingRecipesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
