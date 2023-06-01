@@ -44,6 +44,7 @@ struct RecipesListView: View {
             .sheet(isPresented: $showAddItem) {
                 CreateRecipeView()
             }
+            .navigationTitle("Lista de Receitas")
         }
     }
     

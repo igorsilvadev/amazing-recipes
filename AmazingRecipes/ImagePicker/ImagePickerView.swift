@@ -26,7 +26,7 @@ struct ImagePickerView: View {
             selection: $selectedItem,
             matching: .images,
             photoLibrary: .shared()) {
-                Text("Select a photo")
+                Text("Selecione uma imagem")
             }
             .onChange(of: selectedItem) { newItem in
                 Task {
