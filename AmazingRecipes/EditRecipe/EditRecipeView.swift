@@ -1,14 +1,13 @@
 //
-//  CreateRecipeView.swift
+//  EditRecipeView.swift
 //  AmazingRecipes
 //
-//  Created by Igor Silva on 30/05/23.
+//  Created by Igor Silva on 01/06/23.
 //
 
 import SwiftUI
-import CoreData
 
-struct CreateRecipeView: View {
+struct EditRecipeView: View {
     
     @State private var title = ""
     @State private var price = 0.0
@@ -22,8 +21,14 @@ struct CreateRecipeView: View {
     @State private var ingredients: [String] = []
     @Environment(\.dismiss) var dismiss
     
-    // Aqui ocorre o acesso ao context do core data 
+    // Aqui ocorre o acesso ao context do core data
     @Environment(\.managedObjectContext) private var viewContext
+    
+    var recipe: Recipe
+    
+    init(recipe: Recipe) {
+        self.recipe = recipe
+    }
     
     private var priceFormmater: NumberFormatter {
         let formatter = NumberFormatter()
@@ -35,10 +40,9 @@ struct CreateRecipeView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20){
+                    
                     // MARK: Image Picker
-                    
                     ImagePickerView(selectedImageData: $image)
-                    
                     
                     // MARK: Titulo
                     VStack(alignment: .leading) {
@@ -124,12 +128,23 @@ struct CreateRecipeView: View {
                         .disabled(!canSave())
                     }
                 }
+                .onAppear {
+                    setRecipeInfos()
+                }
             }
         }
     }
     
+    private func setRecipeInfos() {
+        self.title = recipe.title ?? ""
+        self.price = recipe.price
+        self.preparationTime = Int(recipe.preparationTime)
+        self.image = recipe.image
+        self.desc = recipe.desc ?? ""
+        self.ingredients = (recipe.ingredients?.allObjects as? [Ingredient] ?? []).map{ $0.name ?? ""}
+    }
+    
     private func saveRecipe() {
-        let recipe = Recipe(context: viewContext)
         recipe.title = title
         recipe.price = price
         recipe.desc = desc
@@ -137,11 +152,20 @@ struct CreateRecipeView: View {
         recipe.preparationTime = Int16(preparationTime)
         recipe.timestamp = Date()
         
+
+        // Primeiro deletar todos os ingredientes da receita
+        (recipe.ingredients?.allObjects as? [Ingredient] ?? [])
+            .forEach { ingredient in
+                viewContext.delete(ingredient)
+            }
+        
+        // Em seguida recriar a lista dos ingredientes que foram adicionados 
         ingredients.forEach { ingredientName in
             let ingredient = Ingredient(context: viewContext)
             ingredient.name = ingredientName
             recipe.addToIngredients(ingredient)
         }
+        
         
         // Essa é uma segunda maneira de você salvar os dados sem precisar criar um block 'try catch'
         try? viewContext.save()
@@ -159,9 +183,9 @@ struct CreateRecipeView: View {
     }
 }
 
-struct CreateRecipeView_Previews: PreviewProvider {
+struct EditRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateRecipeView()
-            .environment(\.managedObjectContext, PersistenceController(inMemory: true).container.viewContext)
+        EditRecipeView(recipe: try! PersistenceController.preview.container.viewContext.fetch(Recipe.fetchRequest()).first!)
+        
     }
 }

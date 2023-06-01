@@ -13,9 +13,7 @@ struct RecipesListView: View {
     
     @State private var showAddItem = false
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.timestamp, ascending: true)],
-        animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.timestamp, ascending: true)])
     private var recipes: FetchedResults<Recipe>
     
     var body: some View {
@@ -55,15 +53,15 @@ struct RecipesListView: View {
     
     private func deleteRecipes(offsets: IndexSet) {
         withAnimation {
-            offsets.map { recipes[$0] }.forEach(viewContext.delete)
+            
+            offsets.map { recipes[$0] }.forEach { recipe in
+                viewContext.delete(recipe)
+            }
             
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+               // Aqui você criar um tratamento para caso ocorra um erro ao salvar as alterações.
             }
         }
     }
