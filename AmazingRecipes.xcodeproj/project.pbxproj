@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		231FD61D2A2603AE0081896E /* CreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231FD61C2A2603AE0081896E /* CreateRecipeView.swift */; };
+		232BCE6A2A7286060091A602 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BCE662A7286060091A602 /* Recipe+CoreDataClass.swift */; };
+		232BCE6B2A7286060091A602 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BCE672A7286060091A602 /* Recipe+CoreDataProperties.swift */; };
+		232BCE6C2A7286060091A602 /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BCE682A7286060091A602 /* Ingredient+CoreDataClass.swift */; };
+		232BCE6D2A7286060091A602 /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BCE692A7286060091A602 /* Ingredient+CoreDataProperties.swift */; };
+		232BCE6F2A731BC30091A602 /* RecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BCE6E2A731BC30091A602 /* RecipeDataSource.swift */; };
 		232EEAA12A24497B004B0636 /* AmazingRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232EEAA02A24497B004B0636 /* AmazingRecipesApp.swift */; };
 		232EEAA32A24497B004B0636 /* RecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232EEAA22A24497B004B0636 /* RecipesListView.swift */; };
 		232EEAA52A24497F004B0636 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232EEAA42A24497F004B0636 /* Assets.xcassets */; };
@@ -21,6 +26,11 @@
 
 /* Begin PBXFileReference section */
 		231FD61C2A2603AE0081896E /* CreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeView.swift; sourceTree = "<group>"; };
+		232BCE662A7286060091A602 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		232BCE672A7286060091A602 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		232BCE682A7286060091A602 /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		232BCE692A7286060091A602 /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		232BCE6E2A731BC30091A602 /* RecipeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataSource.swift; sourceTree = "<group>"; };
 		232EEA9D2A24497B004B0636 /* AmazingRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		232EEAA02A24497B004B0636 /* AmazingRecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingRecipesApp.swift; sourceTree = "<group>"; };
 		232EEAA22A24497B004B0636 /* RecipesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListView.swift; sourceTree = "<group>"; };
@@ -63,8 +73,13 @@
 		231FD61A2A25FF130081896E /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				232BCE662A7286060091A602 /* Recipe+CoreDataClass.swift */,
+				232BCE672A7286060091A602 /* Recipe+CoreDataProperties.swift */,
+				232BCE682A7286060091A602 /* Ingredient+CoreDataClass.swift */,
+				232BCE692A7286060091A602 /* Ingredient+CoreDataProperties.swift */,
 				232EEAA92A24497F004B0636 /* Persistence.swift */,
 				232EEAAB2A24497F004B0636 /* AmazingRecipes.xcdatamodeld */,
+				232BCE6E2A731BC30091A602 /* RecipeDataSource.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -212,13 +227,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				234E98662A27560400BA91D7 /* RecipeInfoView.swift in Sources */,
+				232BCE6F2A731BC30091A602 /* RecipeDataSource.swift in Sources */,
 				231FD61D2A2603AE0081896E /* CreateRecipeView.swift in Sources */,
 				232EEAAA2A24497F004B0636 /* Persistence.swift in Sources */,
 				232EEAAD2A24497F004B0636 /* AmazingRecipes.xcdatamodeld in Sources */,
 				232EEAA32A24497B004B0636 /* RecipesListView.swift in Sources */,
+				232BCE6B2A7286060091A602 /* Recipe+CoreDataProperties.swift in Sources */,
+				232BCE6D2A7286060091A602 /* Ingredient+CoreDataProperties.swift in Sources */,
 				23B0D50D2A287163001869B0 /* ImagePickerView.swift in Sources */,
 				232EEAA12A24497B004B0636 /* AmazingRecipesApp.swift in Sources */,
+				232BCE6C2A7286060091A602 /* Ingredient+CoreDataClass.swift in Sources */,
 				23B0D50A2A28687C001869B0 /* EditRecipeView.swift in Sources */,
+				232BCE6A2A7286060091A602 /* Recipe+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

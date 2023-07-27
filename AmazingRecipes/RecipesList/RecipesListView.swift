@@ -9,12 +9,10 @@ import SwiftUI
 import CoreData
 
 struct RecipesListView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
+
+    var dataSource: RecipeDataSource
     @State private var showAddItem = false
-    
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.timestamp, ascending: true)])
-    private var recipes: FetchedResults<Recipe>
+    @State var recipes: [Recipe] = []
     
     var body: some View {
         NavigationView {
@@ -41,11 +39,20 @@ struct RecipesListView: View {
                     
                 }
             }
-            .sheet(isPresented: $showAddItem) {
+            .sheet(isPresented: $showAddItem, onDismiss: {
+                fetchRecipes()
+            }) {
                 CreateRecipeView()
             }
             .navigationTitle("Lista de Receitas")
+            .onAppear {
+                fetchRecipes()
+            }
         }
+    }
+    
+    private func fetchRecipes() {
+        recipes = dataSource.getAll()
     }
     
     private func addItem() {
@@ -54,22 +61,16 @@ struct RecipesListView: View {
     
     private func deleteRecipes(offsets: IndexSet) {
         withAnimation {
-            
             offsets.map { recipes[$0] }.forEach { recipe in
-                viewContext.delete(recipe)
-            }
-            
-            do {
-                try viewContext.save()
-            } catch {
-               // Aqui você criar um tratamento para caso ocorra um erro ao salvar as alterações.
+                dataSource.delete(recipe: recipe)
             }
         }
+        fetchRecipes()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipesListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        RecipesListView(dataSource: RecipeDataSourceManager(context: PersistenceController.preview.container.viewContext))
     }
 }

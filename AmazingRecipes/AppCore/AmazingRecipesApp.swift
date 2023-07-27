@@ -15,7 +15,7 @@ struct AmazingRecipesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RecipesListView()
+            RecipesListView(dataSource: RecipeDataSourceManager(context: persistenceController.container.viewContext))
             // Adicionamos o viewContext como um enviroment para que todas as views possam acessá-lo e realizar as operações de CRUD
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
