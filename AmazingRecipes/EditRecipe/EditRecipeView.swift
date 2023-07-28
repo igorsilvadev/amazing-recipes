@@ -141,7 +141,7 @@ struct EditRecipeView: View {
         self.preparationTime = Int(recipe.preparationTime)
         self.image = recipe.image
         self.desc = recipe.desc ?? ""
-        self.ingredients = (recipe.ingredients?.allObjects as? [Ingredient] ?? []).map{ $0.name ?? ""}
+        self.ingredients = recipe.wrappedIngredients.map{ $0.name ?? ""}
     }
     
     private func saveRecipe() {
@@ -154,7 +154,7 @@ struct EditRecipeView: View {
         
 
         // Primeiro deletar todos os ingredientes da receita
-        (recipe.ingredients?.allObjects as? [Ingredient] ?? [])
+        recipe.wrappedIngredients
             .forEach { ingredient in
                 viewContext.delete(ingredient)
             }

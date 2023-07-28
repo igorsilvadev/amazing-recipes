@@ -35,7 +35,7 @@ struct RecipeInfoView: View {
                     
                     // MARK: Listagem dos ingredientes
                     // Note que é feito um cast do tipo de dados. Essa conversão é necessária porque os dados são armazenados como Any, porém caso não seja informado o tipo correto ocorrerá um erro de casting.
-                    ForEach(recipe.ingredients?.allObjects as? [Ingredient] ?? []) { ingredient in
+                    ForEach(recipe.wrappedIngredients) { ingredient in
                         Text(ingredient.name ?? "")
                             .padding(.leading)
                     }

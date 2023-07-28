@@ -24,6 +24,19 @@
 - Crie uma **view model** para realizar as operações de CRUD e armazenar as propriedades da view, reduzindo assim a quantidade de **@States**
 
 
+
+# DESAFIOS - PARTE 2 
+
+### Implemente o Data Source para criação de uma receita 
+- Seguindo o pattern Repository + Data Source implemente a criação de uma receita 
+
+### Crie outras computed properties para as propriedades opcionais da entidade Recipe 
+
+### Crie uma nova versão da modelagem dos dados 
+
+
+
+
 ## Conheça a IrmandadeSwift 
 
 https://www.irmandadeswift.com/home
